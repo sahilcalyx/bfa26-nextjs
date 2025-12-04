@@ -1,6 +1,9 @@
-// Server-side head for catch-all routes, pulling from central SEO config
-export default async function Head({ params }) {
-  const { getSeoForPath, toAbsoluteUrl, siteBaseUrl } = await import("../../seo/seo.config");
+import { toAbsoluteUrl, siteBaseUrl } from "../../seo/seo.config";
+
+export async function generateMetadata({ params }) {
+  // Import the SEO config dynamically
+  const { getSeoForPath } = await import("../../seo/seo.config");
+  
   const slugArray = Array.isArray(params?.slug) ? params.slug : [];
   const path = `/${slugArray.join('/')}` || '/';
   const seo = getSeoForPath(path);
@@ -11,32 +14,42 @@ export default async function Head({ params }) {
   const ogImageUrl = img0?.url ? toAbsoluteUrl(img0.url) : undefined;
   const canonical = og.url || siteBaseUrl + path;
 
-  return (
-    <>
-      <title>{seo.title}</title>
-      {seo.description && <meta name="description" content={seo.description} />}
-      <link rel="canonical" href={canonical} />
+  return {
+    title: seo.title,
+    description: seo.description,
+    alternates: {
+      canonical: canonical,
+    },
+    openGraph: {
+      title: og.title || seo.title,
+      description: og.description || seo.description,
+      url: canonical,
+      siteName: og.siteName || "Brit Fintech Awards",
+      images: ogImageUrl ? [
+        {
+          url: ogImageUrl,
+          width: img0?.width || 1200,
+          height: img0?.height || 630,
+          alt: img0?.alt || seo.title,
+        }
+      ] : undefined,
+      type: og.type || "website",
+    },
+    twitter: {
+      card: tw.card || "summary_large_image",
+      title: tw.title || seo.title,
+      description: tw.description || seo.description,
+      images: ogImageUrl ? [ogImageUrl] : undefined,
+      site: tw.site || "@BritFintech",
+    },
+    robots: {
+      index: true,
+      follow: true,
+    },
+  };
+}
 
-      {/* Essential meta tags for social sharing */}
-      <meta property="og:title" content={og.title || seo.title} />
-      <meta property="og:description" content={og.description || seo.description} />
-      <meta property="og:url" content={canonical} />
-      <meta property="og:type" content={og.type || "website"} />
-      <meta property="og:site_name" content={og.siteName || "Brit Fintech Awards"} />
-      {ogImageUrl && <meta property="og:image" content={ogImageUrl} />}
-      {ogImageUrl && <meta property="og:image:width" content={String(img0?.width || 1200)} />}
-      {ogImageUrl && <meta property="og:image:height" content={String(img0?.height || 630)} />}
-      {img0?.alt && <meta property="og:image:alt" content={img0.alt} />}
-
-      {/* Twitter Card */}
-      <meta name="twitter:card" content={tw.card || "summary_large_image"} />
-      <meta name="twitter:title" content={tw.title || seo.title} />
-      <meta name="twitter:description" content={tw.description || seo.description} />
-      {ogImageUrl && <meta name="twitter:image" content={ogImageUrl} />}
-      
-      {/* Additional meta tags for better indexing */}
-      <meta name="robots" content="index, follow" />
-      <meta name="theme-color" content="#ffffff" />
-    </>
-  );
+export default async function Head() {
+  // This component is for backward compatibility
+  return null;
 }
