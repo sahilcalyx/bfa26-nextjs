@@ -4,23 +4,17 @@ export async function generateMetadata({ params }) {
   // Import the SEO config dynamically
   const { getSeoForPath } = await import("../../seo/seo.config");
   
+  // Construct the path correctly
   const slugArray = Array.isArray(params?.slug) ? params.slug : [];
-  const path = `/${slugArray.join('/')}` || '/';
-  
-  // Debug logging
-  console.log('Generated path:', path);
-  console.log('Slug array:', slugArray);
+  const path = slugArray.length > 0 ? `/${slugArray.join('/')}` : '/';
   
   const seo = getSeoForPath(path);
-  
-  // Debug logging
-  console.log('SEO data for path:', path, seo);
 
   const og = seo.openGraph || {};
   const tw = seo.twitter || {};
   const img0 = Array.isArray(og.images) ? og.images[0] : undefined;
   const ogImageUrl = img0?.url ? toAbsoluteUrl(img0.url) : undefined;
-  const canonical = og.url || siteBaseUrl + path;
+  const canonical = og.url || toAbsoluteUrl(path);
 
   return {
     title: seo.title,

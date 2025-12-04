@@ -9,7 +9,7 @@ export async function generateMetadata() {
   const tw = seo.twitter || {};
   const img0 = Array.isArray(og.images) ? og.images[0] : undefined;
   const ogImageUrl = img0?.url ? toAbsoluteUrl(img0.url) : undefined;
-  const canonical = og.url || siteBaseUrl + "/";
+  const canonical = og.url || toAbsoluteUrl("/");
 
   return {
     title: seo.title,
