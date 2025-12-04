@@ -1,6 +1,5 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import ClientHelmetProvider from "./ClientHelmetProvider";
-import DefaultSeoComponent from "./DefaultSeo";
 import "./globals.css";
 import "../react/index.css";
 
@@ -31,7 +30,6 @@ export default function RootLayout({ children }) {
         <link rel="stylesheet" href="/assets/css/theme_12.css" />
       </head>
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
-        <DefaultSeoComponent />
         <ClientHelmetProvider>
           {children}
         </ClientHelmetProvider>
