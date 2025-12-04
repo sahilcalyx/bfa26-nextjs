@@ -38,7 +38,7 @@ export const defaultSeo = {
 
 export const seoByPath = {
   "/": {
-    title: "Brit Fintech Awards | Home",
+    title: "Brit Fintech Awards | Home 2026",
     description: "Explore categories, sponsors, and highlights of the Brit Fintech Awards.",
     openGraph: {
       title: "Brit Fintech Awards | Home",
