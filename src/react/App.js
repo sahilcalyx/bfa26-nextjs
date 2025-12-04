@@ -4,7 +4,7 @@ import Header from "./Components/Header";
 import About from "./Pages/About";
 import Footer from "./Components/Footer";
 import Sponsers from "./Pages/Sponsers";
-import { useLayoutEffect } from "react";
+import { useLayoutEffect, useEffect } from "react";
 import Awards from "./Pages/Awards";
 import ContactUs from "./Pages/ContactUs";
 import PaymentAcquireroftheYear from "./Pages/PaymentAcquireroftheYear";
@@ -152,6 +152,12 @@ function App() {
   const { pathname } = useLocation();
   useLayoutEffect(() => {
     window.scrollTo(0, 0);
+  }, [pathname]);
+
+  // Dispatch custom event when route changes for SEO updates
+  useEffect(() => {
+    const event = new CustomEvent('app-route-change', { detail: pathname });
+    window.dispatchEvent(event);
   }, [pathname]);
 
   const location = useLocation();
