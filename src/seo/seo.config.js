@@ -2,7 +2,7 @@
 // Update this file to manage SEO for all pages in one place.
 
 const siteName = "Brit Fintech Awards";
-export const siteBaseUrl = "https://bfa26-nextjs-new.vercel.app/"; // Update if different
+export const siteBaseUrl = "https://bfa26-nextjs-new.vercel.app"; // Update if different
 
 export function toAbsoluteUrl(urlOrPath) {
   if (!urlOrPath) return undefined;
