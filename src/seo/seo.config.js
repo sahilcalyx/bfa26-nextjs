@@ -2,7 +2,7 @@
 // Update this file to manage SEO for all pages in one place.
 
 const siteName = "Brit Fintech Awards";
-export const siteBaseUrl = "http://localhost:3000"; // Update if different
+export const siteBaseUrl = "https://bfa26-nextjs-new.vercel.app/"; // Update if different
 
 export function toAbsoluteUrl(urlOrPath) {
   if (!urlOrPath) return undefined;
@@ -61,7 +61,7 @@ export const seoByPath = {
     openGraph: {
       title: "About Brit Fintech Awards",
       description: "Learn about our mission and the team behind the awards.",
-      url: `${siteBaseUrl}/about`,
+      url: `${siteBaseUrl}/about#about`,
       siteName,
       images: [{ url: "/assets/img/og/about.jpg", width: 1200, height: 630, alt: "About" }],
       type: "article",
