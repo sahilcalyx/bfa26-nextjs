@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import Script from "next/script";
-import { getSeoForPath } from "../seo/seo.config";
+import { getSeoForPath, toAbsoluteUrl } from "../seo/seo.config";
 
 export default function RouteSeo() {
   const pathname = usePathname() || "/";
@@ -41,7 +41,12 @@ export default function RouteSeo() {
     "@type": "WebPage",
     "name": seoData.title,
     "description": seoData.description,
+    "url": seoData.openGraph?.url || toAbsoluteUrl(currentPath)
   };
+
+  // Get image URLs
+  const ogImage = seoData.openGraph?.images?.[0];
+  const twitterImage = seoData.twitter?.images?.[0];
 
   return (
     <>
@@ -67,7 +72,7 @@ export default function RouteSeo() {
                 if (!meta.parentNode) document.head.appendChild(meta);
               }
               
-              // Update meta tags
+              // Update basic meta tags
               ${seoData.description ? 'updateMeta("description", "' + seoData.description + '");' : ''}
               
               // Update Open Graph tags
@@ -76,11 +81,16 @@ export default function RouteSeo() {
               ${seoData.openGraph?.url ? 'updateProperty("og:url", "' + seoData.openGraph.url + '");' : ''}
               ${seoData.openGraph?.siteName ? 'updateProperty("og:site_name", "' + seoData.openGraph.siteName + '");' : ''}
               ${seoData.openGraph?.type ? 'updateProperty("og:type", "' + seoData.openGraph.type + '");' : ''}
+              ${ogImage?.url ? 'updateProperty("og:image", "' + toAbsoluteUrl(ogImage.url) + '");' : ''}
+              ${ogImage?.width ? 'updateProperty("og:image:width", "' + ogImage.width + '");' : ''}
+              ${ogImage?.height ? 'updateProperty("og:image:height", "' + ogImage.height + '");' : ''}
+              ${ogImage?.alt ? 'updateProperty("og:image:alt", "' + ogImage.alt + '");' : ''}
               
               // Update Twitter tags
               ${seoData.twitter?.card ? 'updateProperty("twitter:card", "' + seoData.twitter.card + '");' : ''}
               ${seoData.twitter?.title ? 'updateProperty("twitter:title", "' + seoData.twitter.title + '");' : ''}
               ${seoData.twitter?.description ? 'updateProperty("twitter:description", "' + seoData.twitter.description + '");' : ''}
+              ${twitterImage ? 'updateProperty("twitter:image", "' + toAbsoluteUrl(twitterImage) + '");' : ''}
             })();
           `,
         }}
@@ -89,6 +99,7 @@ export default function RouteSeo() {
       <Script
         id="json-ld"
         type="application/ld+json"
+        strategy="afterInteractive"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(jsonLd),
         }}

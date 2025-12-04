@@ -17,26 +17,26 @@ export default async function Head({ params }) {
       {seo.description && <meta name="description" content={seo.description} />}
       <link rel="canonical" href={canonical} />
 
-      {/* Open Graph */}
-      {og.title && <meta property="og:title" content={og.title} />}
-      {og.description && <meta property="og:description" content={og.description} />}
-      {canonical && <meta property="og:url" content={canonical} />} 
-      {og.type && <meta property="og:type" content={og.type} />}
-      {og.siteName && <meta property="og:site_name" content={og.siteName} />}
+      {/* Essential meta tags for social sharing */}
+      <meta property="og:title" content={og.title || seo.title} />
+      <meta property="og:description" content={og.description || seo.description} />
+      <meta property="og:url" content={canonical} />
+      <meta property="og:type" content={og.type || "website"} />
+      <meta property="og:site_name" content={og.siteName || "Brit Fintech Awards"} />
       {ogImageUrl && <meta property="og:image" content={ogImageUrl} />}
-      {img0?.width && <meta property="og:image:width" content={String(img0.width)} />}
-      {img0?.height && <meta property="og:image:height" content={String(img0.height)} />}
+      {ogImageUrl && <meta property="og:image:width" content={String(img0?.width || 1200)} />}
+      {ogImageUrl && <meta property="og:image:height" content={String(img0?.height || 630)} />}
       {img0?.alt && <meta property="og:image:alt" content={img0.alt} />}
 
-      {/* Twitter */}
-      {tw.card && <meta name="twitter:card" content={tw.card} />}
-      {tw.title && <meta name="twitter:title" content={tw.title} />}
-      {tw.description && <meta name="twitter:description" content={tw.description} />}
-      {Array.isArray(tw.images) && tw.images[0] && (
-        <meta name="twitter:image" content={toAbsoluteUrl(tw.images[0])} />
-      )}
-      {tw.site && <meta name="twitter:site" content={tw.site} />}
-      {tw.handle && <meta name="twitter:creator" content={tw.handle} />}
+      {/* Twitter Card */}
+      <meta name="twitter:card" content={tw.card || "summary_large_image"} />
+      <meta name="twitter:title" content={tw.title || seo.title} />
+      <meta name="twitter:description" content={tw.description || seo.description} />
+      {ogImageUrl && <meta name="twitter:image" content={ogImageUrl} />}
+      
+      {/* Additional meta tags for better indexing */}
+      <meta name="robots" content="index, follow" />
+      <meta name="theme-color" content="#ffffff" />
     </>
   );
 }

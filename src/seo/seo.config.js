@@ -20,7 +20,7 @@ export const defaultSeo = {
     siteName,
     images: [
       {
-        url: toAbsoluteUrl("/share-thumb.png"),
+        url: toAbsoluteUrl("/assets/img/og/home.jpg"),
         width: 1200,
         height: 630,
         alt: siteName,
@@ -32,7 +32,7 @@ export const defaultSeo = {
     card: "summary_large_image",
     title: siteName,
     description: "Celebrating excellence and innovation in fintech.",
-    images: [toAbsoluteUrl("/share-thumb.png")],
+    images: [toAbsoluteUrl("/assets/img/og/home.jpg")],
   },
 };
 
@@ -61,7 +61,7 @@ export const seoByPath = {
     openGraph: {
       title: "About Brit Fintech Awards",
       description: "Learn about our mission and the team behind the awards.",
-      url: `${siteBaseUrl}/about#about`,
+      url: `${siteBaseUrl}/about`,
       siteName,
       images: [{ url: "/assets/img/og/about.jpg", width: 1200, height: 630, alt: "About" }],
       type: "article",
@@ -74,7 +74,7 @@ export const seoByPath = {
     },
   },
   "/register": {
-    title: "Register for Brit Fintech Awards",
+    title: "Register for Brit Fintech Awards 2026",
     description: "Enter your nomination or book tickets for the awards night.",
     openGraph: {
       title: "Register for Brit Fintech Awards",
@@ -133,20 +133,27 @@ export function getSeoForPath(path) {
 // Map central SEO to next-seo props (DefaultSeo/NextSeo)
 function toNextSeoProps(seo) {
   const twitterImage = Array.isArray(seo?.twitter?.images) ? seo.twitter.images[0] : undefined;
+  const ogImage = Array.isArray(seo?.openGraph?.images) ? seo.openGraph.images[0] : undefined;
+  
   const additionalMetaTags = [];
   if (seo?.twitter?.title) additionalMetaTags.push({ name: "twitter:title", content: seo.twitter.title });
   if (seo?.twitter?.description) additionalMetaTags.push({ name: "twitter:description", content: seo.twitter.description });
-  if (twitterImage) additionalMetaTags.push({ name: "twitter:image", content: twitterImage });
+  if (twitterImage) additionalMetaTags.push({ name: "twitter:image", content: toAbsoluteUrl(twitterImage) });
 
   return {
     title: seo.title,
     description: seo.description,
     canonical: seo.openGraph?.url,
-    openGraph: seo.openGraph,
+    openGraph: {
+      ...seo.openGraph,
+      images: seo.openGraph?.images?.map(img => ({
+        ...img,
+        url: toAbsoluteUrl(img.url)
+      })) || []
+    },
     twitter: {
       cardType: seo.twitter?.card || "summary_large_image",
-      handle: seo.twitter?.handle,
-      site: seo.twitter?.site,
+      site: seo.twitter?.site || "@BritFintech",
     },
     additionalMetaTags,
   };
