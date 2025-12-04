@@ -6,7 +6,15 @@ export async function generateMetadata({ params }) {
   
   const slugArray = Array.isArray(params?.slug) ? params.slug : [];
   const path = `/${slugArray.join('/')}` || '/';
+  
+  // Debug logging
+  console.log('Generated path:', path);
+  console.log('Slug array:', slugArray);
+  
   const seo = getSeoForPath(path);
+  
+  // Debug logging
+  console.log('SEO data for path:', path, seo);
 
   const og = seo.openGraph || {};
   const tw = seo.twitter || {};
