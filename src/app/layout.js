@@ -1,10 +1,11 @@
 import { Geist, Geist_Mono } from "next/font/google";
-import ClientHelmetProvider from "./ClientHelmetProvider";
+import { defaultSeo } from "../seo/seo.config";
 import "./globals.css";
 import "../react/index.css";
 
 export const metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_BASE_URL || "https://bfa26-nextjs-new.vercel.app"),
+  ...defaultSeo,
 };
 
 const geistSans = Geist({
@@ -34,9 +35,7 @@ export default function RootLayout({ children }) {
         <link rel="stylesheet" href="/assets/css/theme_12.css" />
       </head>
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
-        <ClientHelmetProvider>
-          {children}
-        </ClientHelmetProvider>
+        {children}
       </body>
     </html>
   );

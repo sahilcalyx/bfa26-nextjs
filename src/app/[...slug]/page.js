@@ -1,13 +1,12 @@
-"use client";
-import dynamic from "next/dynamic";
-import RouteSeo from "../RouteSeo";
-const App = dynamic(() => import("../../react/App"), { ssr: false });
+import { getSeoForPath } from "../../seo/seo.config";
+import ClientPage from "./ClientPage";
+
+export async function generateMetadata({ params }) {
+  const { slug } = await params;
+  const path = `/${slug.join("/")}`;
+  return getSeoForPath(path);
+}
 
 export default function CatchAllPage() {
-  return (
-    <>
-      <RouteSeo />
-      <App />
-    </>
-  );
+  return <ClientPage />;
 }
