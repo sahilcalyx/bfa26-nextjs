@@ -166,7 +166,7 @@ export const seoByPath = {
       url: `${siteBaseUrl}/registerfor-startup-pitch`,
       siteName,
       images: [
-        { url: "/assets/img/event-conference/about.png", width: 1200, height: 630, alt: "Startup Deck" },
+        { url: "/assets/img/og/register.jpg", width: 1200, height: 630, alt: "Startup Deck" },
       ],
       type: "website",
     },
@@ -175,7 +175,7 @@ export const seoByPath = {
       title: "Brit Fintech Awards | Register for Startup Deck",
       description:
         "Join the Brit Fintech Awards by registering for the Startup Deck to celebrate and showcase innovation in the UK financial technology industry.",
-      images: ["/assets/img/event-conference/about.png"],
+      images: ["/assets/img/og/register.jpg"],
     },
   },
   "/our-discussion-panel-2025": {
@@ -189,7 +189,7 @@ export const seoByPath = {
       url: `${siteBaseUrl}/our-discussion-panel-2025`,
       siteName,
       images: [
-        { url: "/assets/img/event-conference/about.png", width: 1200, height: 630, alt: "Discussion Panel" },
+        { url: "/assets/img/og/home.jpg", width: 1200, height: 630, alt: "Discussion Panel" },
       ],
       type: "website",
     },
@@ -198,7 +198,7 @@ export const seoByPath = {
       title: "Discussion Panel | Brit Fintech Awards 2025",
       description:
         "Join Brit FinTech Awards UK, celebrating top innovations and achievements in FinTech, and honouring pioneers shaping the future of financial technology.",
-      images: ["/assets/img/event-conference/about.png"],
+      images: ["/assets/img/og/home.jpg"],
     },
   },
   "/blogs": {
