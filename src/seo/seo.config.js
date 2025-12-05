@@ -250,7 +250,7 @@ export const seoByPath = {
       url: `${siteBaseUrl}/beyond-borders-brit-fintech-awards`,
       siteName,
       images: [
-        { url: "/assets/img/blogs/beyond_borders_how_brit_fintech.webp", width: 1200, height: 630, alt: "Beyond Borders" },
+        { url: "/assets/img/blogs/fintech-in-the-uk.jpg", width: 1200, height: 630, alt: "Beyond Borders" },
       ],
       type: "article",
     },
@@ -258,7 +258,7 @@ export const seoByPath = {
       card: "summary_large_image",
       title: "Beyond Borders: Brit Fintech Awards",
       description: "How Brit Fintech Awards celebrates global innovation beyond borders.",
-      images: ["/assets/img/blogs/beyond_borders_how_brit_fintech.webp"],
+      images: ["/assets/img/blogs/fintech-in-the-uk.jpg"],
     },
   },
 };
