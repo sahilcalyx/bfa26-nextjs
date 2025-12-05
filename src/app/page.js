@@ -1,7 +1,4 @@
-"use client";
-import dynamic from "next/dynamic";
-import RouteSeo from "./RouteSeo";
-const App = dynamic(() => import("../react/App"), { ssr: false });
+import HomeClient from "./HomeClient";
 
 export async function generateMetadata() {
   const { getSeoForPath } = await import("../seo/seo.config");
@@ -11,8 +8,7 @@ export async function generateMetadata() {
 export default function Home() {
   return (
     <>
-      <RouteSeo />
-      <App />
+      <HomeClient />
     </>
   );
 }

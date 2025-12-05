@@ -8,6 +8,8 @@ const nextConfig = {
   compiler: {
     styledComponents: true,
   },
+  // Silence monorepo/workspace root inference warnings for this app
+  outputFileTracingRoot: __dirname,
   webpack: (config, { isServer }) => {
     config.resolve.alias = {
       ...(config.resolve.alias || {}),

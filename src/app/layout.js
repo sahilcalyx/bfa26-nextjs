@@ -3,6 +3,10 @@ import ClientHelmetProvider from "./ClientHelmetProvider";
 import "./globals.css";
 import "../react/index.css";
 
+export const metadata = {
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_BASE_URL || "https://bfa26-nextjs-new.vercel.app"),
+};
+
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
