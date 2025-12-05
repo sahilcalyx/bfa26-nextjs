@@ -2,7 +2,7 @@
 // Update this file to manage SEO for all pages in one place.
 
 const siteName = "Brit Fintech Awards";
-export const siteBaseUrl = "https://bfa26-nextjs-new.vercel.app";
+export const siteBaseUrl = process.env.NEXT_PUBLIC_SITE_BASE_URL || "https://bfa26-nextjs-new.vercel.app";
 
 export function toAbsoluteUrl(urlOrPath) {
   if (!urlOrPath) return undefined;
@@ -263,23 +263,47 @@ export const seoByPath = {
   },
 };
 
+function selectOgImage(path) {
+  const last = path.split("/").filter(Boolean).pop()?.toLowerCase() || "home";
+  if (last.includes("about")) return "/assets/img/og/about.jpg";
+  if (last.includes("contact")) return "/assets/img/og/contact.jpg";
+  if (last.includes("register")) return "/assets/img/og/register.jpg";
+  if (last.includes("blog") || path.includes("/blogs")) return "/assets/img/og/home.jpg";
+  return "/assets/img/og/home.jpg";
+}
+
 function inferFromSlug(path) {
-  // Simple inference from last segment if not explicitly defined
   const last = path.split("/").filter(Boolean).pop() || "home";
   const titleCase = last
     .replace(/[-_]/g, " ")
     .replace(/\b\w/g, (c) => c.toUpperCase());
   const title = `${titleCase} | ${siteName}`;
+  const image = selectOgImage(path);
   return {
-    ...defaultSeo,
     title,
-    openGraph: { ...defaultSeo.openGraph, title, url: `${siteBaseUrl}${path}` },
-    twitter: { ...defaultSeo.twitter, title },
+    description: defaultSeo.description,
+    openGraph: {
+      title,
+      description: defaultSeo.description,
+      url: `${siteBaseUrl}${path}`,
+      siteName,
+      images: [
+        { url: image, width: 1200, height: 630, alt: title }
+      ],
+      type: "website",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description: defaultSeo.description,
+      images: [image],
+    },
   };
 }
 
 export function getSeoForPath(path) {
-  return seoByPath[path] || inferFromSlug(path) || defaultSeo;
+  const normalized = String(path || "/").toLowerCase();
+  return seoByPath[normalized] || inferFromSlug(path) || defaultSeo;
 }
 
 // Map central SEO to next-seo props (DefaultSeo/NextSeo)
