@@ -262,7 +262,7 @@ export const seoByPath = {
     },
   },
   "/mercury-sponsor-details-2025": {
-    title: "Mercury Sponsor Details 2025",
+    title: "Mercury Sponsor Details 2025 | BFA26",
     description: "Mercury Danati: London’s Trusted Currency Exchange Specialist",
     openGraph: {
       title: "Mercury Sponsor Details 2025",
