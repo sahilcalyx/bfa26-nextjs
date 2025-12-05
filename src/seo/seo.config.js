@@ -41,7 +41,7 @@ export const seoByPath = {
     title: "Brit Fintech Awards | Home 2026",
     description: "Explore categories, sponsors, and highlights of the Brit Fintech Awards.",
     openGraph: {
-      title: "Brit Fintech Awards | Home",
+      title: "Brit Fintech Awards | Home 2026",
       description: "Explore categories, sponsors, and highlights of the Brit Fintech Awards.",
       url: `${siteBaseUrl}/`,
       siteName,
@@ -59,7 +59,7 @@ export const seoByPath = {
     title: "About Brit Fintech Awards 2026",
     description: "Learn about our mission and the team behind the awards.",
     openGraph: {
-      title: "About Brit Fintech Awards",
+      title: "About Brit Fintech Awards 2026",
       description: "Learn about our mission and the team behind the awards.",
       url: `${siteBaseUrl}/about`,
       siteName,

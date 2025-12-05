@@ -5,24 +5,7 @@ import { NavLink } from "react-router-dom";
 const About = () => {
   return (
     <div>
-   <Helmet>
-    <title>About Brit Fintech Awards UK  | Celebrating FinTech Innovation</title>
-    <meta
-        name="description"
-        content="Join Brit FinTech Awards UK, celebrating top innovations and achievements in FinTech, and honouring pioneers who are shaping the future of financial technology."
-    />
-    <meta
-        name="keywords"
-        content="Brit Fintech Award, UK Fintech Awards, About Us, Financial Technology Sector UK, Fintech Innovation UK"
-    />
-    <meta name="author" content="Brit Fintech Award" />
-    <meta property="og:title" content="About Brit Fintech Awards UK | Celebrating FinTech Innovation" />
-    <meta
-        property="og:description"
-        content="Join Brit FinTech Awards UK, celebrating top innovations and achievements in FinTech, and honouring pioneers who are shaping the future of financial technology."
-    />
-    <meta property="og:image" content="https://britfintechawards.com/assets/img/event-conference/about.png" />
-</Helmet>
+
 
       <div>
         <div className="cs-height_90 cs-height_lg_80" />
