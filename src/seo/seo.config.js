@@ -2,7 +2,7 @@
 // Update this file to manage SEO for all pages in one place.
 
 const siteName = "Brit Fintech Awards";
-export const siteBaseUrl = "https://bfa26-nextjs-new.vercel.app"; // Update if different
+export const siteBaseUrl = "https://bfa26-nextjs-new.vercel.app";
 
 export function toAbsoluteUrl(urlOrPath) {
   if (!urlOrPath) return undefined;
@@ -107,6 +107,158 @@ export const seoByPath = {
       title: "Contact Brit Fintech Awards",
       description: "Get in touch with the Brit Fintech Awards team.",
       images: ["/assets/img/og/contact.jpg"],
+    },
+  },
+  "/privacy-policy": {
+    title: "Brit Fintech Awards | Privacy Policy",
+    description:
+      "Learn about how Brit Fintech Awards handles your privacy and personal information in compliance with privacy laws and regulations.",
+    openGraph: {
+      title: "Brit Fintech Awards | Privacy Policy",
+      description:
+        "Learn about how Brit Fintech Awards handles your privacy and personal information in compliance with privacy laws and regulations.",
+      url: `${siteBaseUrl}/privacy-policy`,
+      siteName,
+      images: [
+        { url: "/assets/img/og/about.jpg", width: 1200, height: 630, alt: "Privacy Policy" },
+      ],
+      type: "website",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: "Brit Fintech Awards | Privacy Policy",
+      description:
+        "Learn about how Brit Fintech Awards handles your privacy and personal information in compliance with privacy laws and regulations.",
+      images: ["/assets/img/og/about.jpg"],
+    },
+  },
+  "/sponsorship-terms-and-conditions": {
+    title: "Brit Fintech Awards | Sponsorship Terms and Conditions",
+    description:
+      "Read the Sponsorship terms and conditions governing the use of Brit Fintech Awards website and services.",
+    openGraph: {
+      title: "Brit Fintech Awards | Sponsorship Terms and Conditions",
+      description:
+        "Read the Sponsorship terms and conditions governing the use of Brit Fintech Awards website and services.",
+      url: `${siteBaseUrl}/sponsorship-terms-and-conditions`,
+      siteName,
+      images: [
+        { url: "/assets/img/og/about.jpg", width: 1200, height: 630, alt: "Sponsorship Terms" },
+      ],
+      type: "website",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: "Brit Fintech Awards | Sponsorship Terms and Conditions",
+      description:
+        "Read the Sponsorship terms and conditions governing the use of Brit Fintech Awards website and services.",
+      images: ["/assets/img/og/about.jpg"],
+    },
+  },
+  "/registerfor-startup-pitch": {
+    title: "Brit Fintech Awards | Register for Startup Deck",
+    description:
+      "Register for the Startup Deck at the Brit Fintech Awards and join us in celebrating innovation and excellence in the UK's financial technology sector.",
+    openGraph: {
+      title: "Brit Fintech Awards | Register for Startup Deck",
+      description:
+        "Join the Brit Fintech Awards by registering for the Startup Deck to celebrate and showcase innovation in the UK financial technology industry.",
+      url: `${siteBaseUrl}/registerfor-startup-pitch`,
+      siteName,
+      images: [
+        { url: "/assets/img/event-conference/about.png", width: 1200, height: 630, alt: "Startup Deck" },
+      ],
+      type: "website",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: "Brit Fintech Awards | Register for Startup Deck",
+      description:
+        "Join the Brit Fintech Awards by registering for the Startup Deck to celebrate and showcase innovation in the UK financial technology industry.",
+      images: ["/assets/img/event-conference/about.png"],
+    },
+  },
+  "/our-discussion-panel-2025": {
+    title: "Discussion Panel | Brit Fintech Awards 2025",
+    description:
+      "Join Brit FinTech Awards UK, celebrating top innovations and achievements in FinTech, and honouring pioneers shaping the future of financial technology.",
+    openGraph: {
+      title: "Discussion Panel | Brit Fintech Awards 2025",
+      description:
+        "Join Brit FinTech Awards UK, celebrating top innovations and achievements in FinTech, and honouring pioneers shaping the future of financial technology.",
+      url: `${siteBaseUrl}/our-discussion-panel-2025`,
+      siteName,
+      images: [
+        { url: "/assets/img/event-conference/about.png", width: 1200, height: 630, alt: "Discussion Panel" },
+      ],
+      type: "website",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: "Discussion Panel | Brit Fintech Awards 2025",
+      description:
+        "Join Brit FinTech Awards UK, celebrating top innovations and achievements in FinTech, and honouring pioneers shaping the future of financial technology.",
+      images: ["/assets/img/event-conference/about.png"],
+    },
+  },
+  "/blogs": {
+    title: "Brit Fintech Awards | Blogs",
+    description: "Insights and stories from the Brit Fintech Awards community.",
+    openGraph: {
+      title: "Brit Fintech Awards | Blogs",
+      description: "Insights and stories from the Brit Fintech Awards community.",
+      url: `${siteBaseUrl}/blogs`,
+      siteName,
+      images: [
+        { url: "/assets/img/og/home.jpg", width: 1200, height: 630, alt: "Blogs" },
+      ],
+      type: "website",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: "Brit Fintech Awards | Blogs",
+      description: "Insights and stories from the Brit Fintech Awards community.",
+      images: ["/assets/img/og/home.jpg"],
+    },
+  },
+  "/will-2025-be-the-year-of-stablecoins": {
+    title: "Will 2025 Be the Year of Stablecoins?",
+    description: "Exploring the potential mainstream adoption of stablecoins in 2025.",
+    openGraph: {
+      title: "Will 2025 Be the Year of Stablecoins?",
+      description: "Exploring the potential mainstream adoption of stablecoins in 2025.",
+      url: `${siteBaseUrl}/will-2025-be-the-year-of-stablecoins`,
+      siteName,
+      images: [
+        { url: "/assets/img/blogs/will-2025-be-the-year-of-stablecoins.png", width: 1200, height: 630, alt: "Stablecoins 2025" },
+      ],
+      type: "article",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: "Will 2025 Be the Year of Stablecoins?",
+      description: "Exploring the potential mainstream adoption of stablecoins in 2025.",
+      images: ["/assets/img/blogs/will-2025-be-the-year-of-stablecoins.png"],
+    },
+  },
+  "/beyond-borders-brit-fintech-awards": {
+    title: "Beyond Borders: Brit Fintech Awards",
+    description: "How Brit Fintech Awards celebrates global innovation beyond borders.",
+    openGraph: {
+      title: "Beyond Borders: Brit Fintech Awards",
+      description: "How Brit Fintech Awards celebrates global innovation beyond borders.",
+      url: `${siteBaseUrl}/beyond-borders-brit-fintech-awards`,
+      siteName,
+      images: [
+        { url: "/assets/img/blogs/beyond_borders_how_brit_fintech.webp", width: 1200, height: 630, alt: "Beyond Borders" },
+      ],
+      type: "article",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: "Beyond Borders: Brit Fintech Awards",
+      description: "How Brit Fintech Awards celebrates global innovation beyond borders.",
+      images: ["/assets/img/blogs/beyond_borders_how_brit_fintech.webp"],
     },
   },
 };
