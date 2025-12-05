@@ -261,6 +261,26 @@ export const seoByPath = {
       images: ["/assets/img/blogs/fintech-in-the-uk.jpg"],
     },
   },
+  "/mercury-sponsor-details-2025": {
+    title: "Mercury Sponsor Details 2025",
+    description: "Mercury Danati: London’s Trusted Currency Exchange Specialist",
+    openGraph: {
+      title: "Mercury Sponsor Details 2025",
+      description: "Mercury Danati: London’s Trusted Currency Exchange Specialist",
+      url: `${siteBaseUrl}/mercury-sponsor-details-2025`,
+      siteName,
+      images: [
+        { url: "/assets/img/sponsor-logo/Mercury-Danati-25.png", width: 1200, height: 630, alt: "Mercury Sponsor Details 2025" },
+      ],
+      type: "article",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: "Mercury Sponsor Details 2025",
+      description: "Mercury Danati: London’s Trusted Currency Exchange Specialist",
+      images: ["/assets/img/sponsor-logo/Mercury-Danati-25.png"],
+    },
+  },
 };
 
 function selectOgImage(path) {
