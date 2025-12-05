@@ -38,10 +38,10 @@ export const defaultSeo = {
 
 export const seoByPath = {
   "/": {
-    title: "Brit Fintech Awards | Home 2026",
+    title: "Brit Fintech Awards | Home",
     description: "Explore categories, sponsors, and highlights of the Brit Fintech Awards.",
     openGraph: {
-      title: "Brit Fintech Awards | Home 2026",
+      title: "Brit Fintech Awards | Home",
       description: "Explore categories, sponsors, and highlights of the Brit Fintech Awards.",
       url: `${siteBaseUrl}/`,
       siteName,
@@ -268,7 +268,11 @@ function selectOgImage(path) {
   if (last.includes("about")) return "/assets/img/og/about.jpg";
   if (last.includes("contact")) return "/assets/img/og/contact.jpg";
   if (last.includes("register")) return "/assets/img/og/register.jpg";
-  if (last.includes("blog") || path.includes("/blogs")) return "/assets/img/og/home.jpg";
+  if (last.includes("blog") || path.includes("/blogs")) return "/assets/img/blogs/fintech-in-the-uk.jpg";
+  if (path.toLowerCase().includes("award")) return "/assets/img/aword-demo.png";
+  if (path.toLowerCase().includes("sponsor")) return "/assets/img/event-conference/sponsor_bg.jpg";
+  if (path.toLowerCase().includes("judges")) return "/assets/img/event-conference/bfa-jurry1.png";
+  if (path.toLowerCase().includes("gallery")) return "/assets/img/event-conference/post1.jpg";
   return "/assets/img/og/home.jpg";
 }
 
