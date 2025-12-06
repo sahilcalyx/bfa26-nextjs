@@ -281,6 +281,26 @@ export const seoByPath = {
       images: ["/assets/img/sponsor-logo/Mercury-Danati-25.png"],
     },
   },
+  "/ecex-sponsor-details-2025": {
+    title: "ECEX — Currency Exchange, Effortless in Two Clicks. | BFA26",
+    description: "ECEX — Currency Exchange, Effortless in Two Clicks.",
+    openGraph: {
+      title: "ECEX — Currency Exchange, Effortless in Two Clicks. | BFA26",
+      description: "ECEX — Currency Exchange, Effortless in Two Clicks.",
+      url: `${siteBaseUrl}/ecex-sponsor-details-2025`,
+      siteName,
+      images: [
+        { url: "/assets/img/sponsor-logo/ECEX-sponsor-banner.png", width: 1200, height: 630, alt: "ECEX Sponsor Details 2025" },
+      ],
+      type: "article",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: "ECEX — Currency Exchange, Effortless in Two Clicks. | BFA26",
+      description: "ECEX — Currency Exchange, Effortless in Two Clicks.",
+      images: ["/assets/img/sponsor-logo/ECEX-sponsor-banner.png"],
+    },
+  },
 };
 
 function selectOgImage(path) {
