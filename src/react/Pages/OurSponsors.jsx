@@ -127,7 +127,7 @@ const OurSponsors = () => {
               },
                  {
                 link: "/chrisborough-sponsor-details-2025",
-                img: "../assets/img/sponsor-logo/chrisborough-sponsor-Logo.png",
+                img: "../assets/img/sponsor-logo/chrisborough-sponsor-logo.png",
                 alt: "chrisborough",
               },
                  {

@@ -178,12 +178,15 @@ box-shadow: none;
                       </NavLink>
                     </li>
                     <li id={splitLocation[1] === "" ? "" : ""}>
-                      <NavLink
+                      <a
                         className={`nav-link ${
                           isSticky ? "text-white-navlink" : "text-dark"
                         }`}
-                        to="/sponsorship-categories#sponsorship-categories"
-                        onClick={toggleDropdown}
+                        style={{ cursor: "pointer" }}
+                        onClick={(e) => {
+                          e.preventDefault();
+                          toggleDropdown();
+                        }}
                       >
                         Sponsors
                         <FontAwesomeIcon
@@ -191,7 +194,7 @@ box-shadow: none;
                           style={{ fontSize: "10px" }}
                           icon={faChevronDown}
                         />
-                      </NavLink>
+                      </a>
                       <ul
                         className={`dropdown-menu ${
                           isDropdownOpen ? "show" : ""
